@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+            name='viewport'
+            content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
+    />
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />-->
+    <script src="p5.min.js"></script>
+    <script src="addons/p5.dom.min.js"></script>
+    <script src="addons/p5.sound.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
+
+</head>
+<body>
+
+<div class="wrapper"  align="center"><button id="redBtn" ontouchstart="javascript: redClick();" class="button2"></button></div>
+<!--<div align="left"><button id="leftBtn" onclick="javascript: leftClick()" ontouchstart="javascript: leftClick()" onmouseup="javascript: leftRelease();"  class="triangle-left"></button></div>
+<div align="center-left"><button id="rightBtn" onclick="javascript: rightClick()"  ontouchstart="javascript: rightClick()" onmouseup="javascript: rightRelease();"   class="triangle-right"></button></div>-->
+
+<div  align="left"><button id="leftBtn" ontouchstart="javascript: leftClick();" ontouchend="javascript: leftRelease()" class="triangle-left"></button></div>
+
+<div  align="left"><button id="rightBtn" ontouchstart="javascript: rightClick();" ontouchend="javascript: rightRelease()" class="triangle-right"></button></div>
+
+<div align="center"><button id="pauseBtn" ontouchstart="javascript: pauseClick();" class="pauseBtn">PAUSE</button></div>
+<script src="sketch.js"></script>
+</body>
+</html>
+
+
+<style>
+
+    .button2 {
+        background-color: #ff000a;
+        border: none;
+        color: #ff000a;
+        padding: 20px;
+        text-align: center;
+        text-decoration: none;
+        padding: 48px 48px;
+        display: inline-block;
+        font-size: 40px;
+        position: absolute;
+        border: 3px solid #000000;
+        box-shadow:
+                0 0 0 8px hsl(0, 0%, 80%),
+                0 0 0 10px hsl(0, 0%, 90%);
+        top: 50%;
+        margin: 4px 2px;
+        margin-left: 160px;
+        border-radius: 50%;
+    }
+    .button2:active {
+        background-color: #ff000a;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+
+    .wrapper {
+        text-align: center;
+    }
+    .triangle-left {
+        width: 0;
+        height: 0;
+        border-top: 50px solid #FFFF;
+        border-right: 100px solid #000000;
+        border-bottom: 50px solid #FFFF;
+        position:absolute;
+        margin-left: 110px;
+        top: 50%;
+    }
+    .triangle-left:active {
+        background-color: #000000;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+    .triangle-right {
+        width: 0;
+        height: 0;
+        border-top: 50px solid #FFFF ;
+        border-left: 100px solid #000000;
+        border-bottom: 50px solid #FFFF;
+        position:absolute;
+        margin-left: 230px;
+        top: 50%;
+    }
+    .triangle-right:active {
+        background-color: #000000;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+        /*border-top: 50px solid #FFFF ;
+        border-left: 100px solid #000000;
+        border-bottom: 50px solid #FFFF;*/
+    }
+    .pauseBtn{
+        width: 200px;
+        height: 60px;
+        position: absolute;
+        margin-left: -100px;
+        top: 20%;
+        -webkit-text-fill-color: #7a7a7a;
+        font-family: "Arial Black";
+        font-stretch: ultra-expanded;
+        border: 3px solid #000000;
+        box-shadow:
+                0 0 0 8px hsl(0, 0%, 80%),
+                0 0 0 10px hsl(0, 0%, 90%);
+        font-size: 40px;
+    }
+    .pauseBtn:active {
+        background-color: rgba(203, 198, 201, 0.64);
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+        border: 3px solid #000000;
+
+    }
+</style>
